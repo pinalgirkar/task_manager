@@ -1,0 +1,234 @@
+{
+	"info": {
+		"_postman_id": "aece1d8e-e37b-41f8-a549-9ac96e5f3054",
+		"name": "tasks_apis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "33216336"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "pinal123@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "pinal@123",
+									"type": "text"
+								}
+							]
+						},
+						"url": "127.0.0.1:8000/api/login"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CRUD",
+			"item": [
+				{
+					"name": "List_all_task",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"T1\",\r\n    \"description\": \"T4 description\",\r\n    \"due_date\": \"2024-03-01\",\r\n    \"status\": \"pending\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "127.0.0.1:8000/api/tasks"
+					},
+					"response": []
+				},
+				{
+					"name": "Insert_task",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"T1\",\r\n    \"description\": \"T4 description\",\r\n    \"due_date\": \"2024-03-01\",\r\n    \"status\": \"pending\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "127.0.0.1:8000/api/tasks"
+					},
+					"response": []
+				},
+				{
+					"name": "Update_task",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"T1\",\r\n    \"description\": \"T1 description\",\r\n    \"due_date\": \"2024-03-01\",\r\n    \"status\": \"pending\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "127.0.0.1:8000/api/tasks/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete_task",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"T1\",\r\n    \"description\": \"T4 description\",\r\n    \"due_date\": \"2024-03-01\",\r\n    \"status\": \"pending\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "127.0.0.1:8000/api/tasks/3"
+					},
+					"response": []
+				},
+				{
+					"name": "Get_task",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"T1\",\r\n    \"description\": \"T4 description\",\r\n    \"due_date\": \"2024-03-01\",\r\n    \"status\": \"pending\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "127.0.0.1:8000/api/tasks/2"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "assign || unassign user from task",
+			"item": [
+				{
+					"name": "Assign to multiple user",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_ids\" : [1,2]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/tasks/1/assign"
+					},
+					"response": []
+				},
+				{
+					"name": "Unassign_user_from_task",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://127.0.0.1:8000/api/tasks/1/unassign/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Update the status",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"pinal123@gmail.com\",\r\n    \"password\": \"pinal@123\",\r\n    \"status\": \"completed\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/task_update/2/status"
+					},
+					"response": []
+				},
+				{
+					"name": "task_assign_to_user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:8000/api/users/1/tasks"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Filter_API",
+			"item": [
+				{
+					"name": "filter_by_status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:8000/api/get_tasks/status/in_progress"
+					},
+					"response": []
+				},
+				{
+					"name": "filter_by_name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:8000/api/get_tasks/user/pinal"
+					},
+					"response": []
+				},
+				{
+					"name": "filter_by_date",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:8000/api/get_tasks/date/2024-03-01"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
